@@ -1,0 +1,20 @@
+{
+  "files.associations": {},
+  "terminal.integrated.env.windows": {
+    "AWS_PROFILE": "",
+    "TERRAGRUNT_DOWNLOAD": "C:\\temp"
+  },
+  "terminal.integrated.env.osx": {
+    "AWS_PROFILE": ""
+  },
+  "terminal.integrated.env.linux": {
+    "AWS_PROFILE": ""
+  },
+  "terraform-ls.experimentalFeatures": {
+    "prefillRequiredFields": true,
+    "validateOnSave": true
+  },
+  "terraform-ls.ignoreDirectoryNames": [".terragrunt-cache"],
+  "terraform.codelens.referenceCount": true,
+  "editor.suggest.preview": true
+}

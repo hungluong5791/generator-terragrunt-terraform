@@ -1,0 +1,11 @@
+.terraform.lock.hcl
+.DS_Store
+.terraform
+logs
+*.log
+*.zip
+*.tfplan
+*.tfstate
+.terragrunt-cache
+kics_results
+terragrunt-debug.tfvars.json
