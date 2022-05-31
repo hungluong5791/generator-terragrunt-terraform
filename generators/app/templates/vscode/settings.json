@@ -1,5 +1,7 @@
 {
-  "files.associations": {},
+  "files.associations": {
+    "*.hcl": "terraform"
+  },
   "terminal.integrated.env.windows": {
     "AWS_PROFILE": "",
     "TERRAGRUNT_DOWNLOAD": "C:\\temp"

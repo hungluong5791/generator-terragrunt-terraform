@@ -43,12 +43,11 @@ module.exports = class extends Generator {
 
     mkdirp.sync(path.join(this.destinationRoot(), 'live'));
     readSubDir(path.join(this.destinationRoot(), 'live')).forEach((env) => {
-      mkdirp.sync(path.join(this.destinationRoot(), 'live', env));
-
       readSubDir(path.join(this.destinationRoot(), 'live', env)).forEach(region => {
+        mkdirp.sync(path.join(this.destinationRoot(), 'live', env, region, this.options.moduleName));
         this.fs.copyTpl(
           this.templatePath(`live/terragrunt.hcl`),
-          this.destinationPath(`live/${env}/${region}/terragrunt.hcl`),
+          this.destinationPath(`live/${env}/${region}/${this.options.moduleName}/terragrunt.hcl`),
           {
             moduleName: this.options.moduleName,
             moduleDependencies: this.options.moduleDependencies

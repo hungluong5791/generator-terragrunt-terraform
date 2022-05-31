@@ -4,10 +4,10 @@ locals {
   region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
 
-  aws_region   = local.region_vars.locals.region
-  account_id   = local.account_vars.locals.account_id
-  role_arn     = local.account_vars.locals.role_arn
-  session_name = local.account_vars.locals.session_name
+  aws_aws_region   = local.region_vars.locals.aws_region
+  aws_account_id   = local.account_vars.locals.aws_account_id
+  aws_role_arn     = local.account_vars.locals.aws_role_arn
+  aws_session_name = local.account_vars.locals.aws_session_name
 
   app_name = local.app_vars.locals.app_name
   app_tags = merge(
@@ -25,11 +25,11 @@ generate "provider" {
 provider "aws" {
 	region = "${local.aws_region}"
 	assume_role {
-		role_arn = "${local.role_arn}"
-		session_name = "${local.session_name}"
+		role_arn = "${local.aws_role_arn}"
+		session_name = "${local.aws_session_name}"
 	}
 	# Only these AWS Account IDs may be operated on by this template
-	allowed_account_ids = ["${local.account_id}"]
+	allowed_account_ids = ["${local.aws_account_id}"]
 }
 EOF
 }
@@ -38,7 +38,7 @@ remote_state {
   backend = "s3"
 
   config = {
-    bucket              = "${local.app_name}-${local.account_id}-${local.aws_region}-tfstate"
+    bucket              = "${local.app_name}-${local.aws_account_id}-${local.aws_region}-tfstate"
     s3_bucket_tags      = local.app_tags
     encrypt             = true
     key                 = "${path_relative_to_include()}/terraform.tfstate"
