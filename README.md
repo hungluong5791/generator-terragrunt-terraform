@@ -32,7 +32,7 @@ yo terragrunt-terraform:module {{ module_name }}
 
 In addition, you can specify the dependencies of the module using comma-separated module names:
 ```bash
-yo terragrunt-terraform:module {{ module_name }} infrastructure,eks
+yo terragrunt-terraform:module {{ module_name }} --moduleDependencies infrastructure,eks
 ```
 ## License
 
