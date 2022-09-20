@@ -1,4 +1,4 @@
-# generator-terragrunt-terraform [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-terragrunt-terraform [![NPM version][npm-image]][npm-url]
 > 
 
 ## Installation
@@ -10,19 +10,30 @@ npm install -g yo
 npm install -g generator-terragrunt-terraform
 ```
 
-Then generate your new project:
+## Usage
+
+### Generating a project
+To generate a new Terragrunt project:
+
+In the directory you want to initialize the project:
 
 ```bash
 yo terragrunt-terraform
 ```
 
-## Getting To Know Yeoman
+### Generating a module
+To generate a new Terragrunt module:
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+In the root directory of the Terragrunt project: (it is assumed that the project was generated using this generator):
 
+```bash
+yo terragrunt-terraform:module {{ module_name }}
+```
+
+In addition, you can specify the dependencies of the module using comma-separated module names:
+```bash
+yo terragrunt-terraform:module {{ module_name }} infrastructure,eks
+```
 ## License
 
 MIT © [Hung Luong]()
@@ -30,7 +41,3 @@ MIT © [Hung Luong]()
 
 [npm-image]: https://badge.fury.io/js/generator-terragrunt-terraform.svg
 [npm-url]: https://npmjs.org/package/generator-terragrunt-terraform
-[travis-image]: https://travis-ci.com/hungluong5791/generator-terragrunt-terraform.svg?branch=master
-[travis-url]: https://travis-ci.com/hungluong5791/generator-terragrunt-terraform
-[daviddm-image]: https://david-dm.org/hungluong5791/generator-terragrunt-terraform.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/hungluong5791/generator-terragrunt-terraform
