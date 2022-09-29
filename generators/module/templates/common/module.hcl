@@ -17,7 +17,7 @@ locals {
 }
 <% if (moduleDependencies && moduleDependencies.length > 0) { %><% for (var i = 0; i < moduleDependencies.length; i++) { %>
 dependency "<%= moduleDependencies[i] %>" {
-  config_path = "../<%= moduleDependencies[i] %>/terragrunt.hcl"
+  config_path = "../<%= moduleDependencies[i] %>"
 }
 <% } %><% } %>
 inputs = {<% if (moduleDependencies && moduleDependencies.length > 0) { %><% for (var i = 0; i < moduleDependencies.length; i++) { %>
