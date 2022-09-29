@@ -1,6 +1,6 @@
 {
   "name": "generator-terragrunt-terraform",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Yeoman Generator to generate a skeleton Terragrunt project and/or module",
   "homepage": "",
   "author": {
