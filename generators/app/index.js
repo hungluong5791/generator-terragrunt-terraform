@@ -89,7 +89,7 @@ module.exports = class extends Generator {
         type: "confirm",
         name: "initializeGit",
         message: "Initialize Git repository?",
-        default: true,
+        default: false,
       },
     ];
 
@@ -105,7 +105,7 @@ module.exports = class extends Generator {
     }
 
     this.fs.copy(
-      this.templatePath(".gitignore"),
+      this.templatePath("gitignore"),
       this.destinationPath(".gitignore"),
     )
   }
@@ -126,7 +126,7 @@ module.exports = class extends Generator {
     );
 
     mkdirp.sync(path.join(this.destinationRoot(), 'common'));
-    this.fs.write(this.destinationPath('common/.gitkeep'), '');
+    // This.fs.write(this.destinationPath('common/.gitkeep'), '');
 
     mkdirp.sync(path.join(this.destinationRoot(), 'live'));
     this.props.appEnvironments.forEach((env, idx) => {
@@ -161,14 +161,14 @@ module.exports = class extends Generator {
     });
 
     mkdirp.sync(path.join(this.destinationRoot(), 'modules'));
-    this.fs.write(this.destinationPath('modules/.gitkeep'), '');
+    // This.fs.write(this.destinationPath('modules/.gitkeep'), '');
 
     if (this.props.generateInitialModule) {
       this.composeWith(require.resolve('../module'), {
         arguments: [this.props.initialModuleName],
       })
-      this.fs.delete(this.destinationPath('common/.gitkeep'), '');
-      this.fs.delete(this.destinationPath('modules/.gitkeep'), '');
+      // This.fs.delete(this.destinationPath('common/.gitkeep'), '');
+      // this.fs.delete(this.destinationPath('modules/.gitkeep'), '');
     }
 
     if (this.props.generateVsCodeConfig) {
